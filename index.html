@@ -4,110 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Checklist modów do Stardew Valley</title>
-  <!-- Czcionki inspirowane klimatem retro -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Animowane tło inspirowane stylem CodePen */
-    body {
+    :root {
+      --container_color: #ffc878;
+      --container_color2: #f8ba70;
+      --container_color3: #eba867;
+      --text_color: #331f28;
+      --text_shadow: #ce9c5f;
+      --gradient-bg: linear-gradient(
+        180deg,
+        var(--container_color) 0%,
+        var(--container_color2) 50%,
+        var(--container_color3) 100%
+      );
+    }
+    
+    @font-face {
+      font-family: svFont;
+      src: url(https://assets.codepen.io/7237686/rainyhearts.woff) format("woff");
+    }
+    @font-face {
+      font-family: pixelFont;
+      src: url(https://assets.codepen.io/7237686/pixelFont.woff) format("woff");
+    }
+    
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(45deg, #3d2b1f, #c7a17a, #3d2b1f);
-      background-size: 600% 600%;
-      animation: gradientBG 20s ease infinite;
-      color: #fff;
+      box-sizing: border-box;
     }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    
+    body {
+      background-image: url("https://assets.codepen.io/7237686/bg.png?format=auto");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: svFont, sans-serif;
+      color: var(--text_color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
     }
-
-    /* Menu nawigacyjne inspirowane CodePen */
+    
+    /* Menu nawigacyjne */
     nav {
-      background: rgba(0, 0, 0, 0.4);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      position: fixed;
-      top: 0;
       width: 100%;
-      z-index: 100;
+      max-width: 960px;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: var(--container_color);
+      border: 10px solid;
+      border-image: url("https://assets.codepen.io/7237686/tab_border.png?format=auto") 24 round;
+      border-radius: 20px;
+      text-align: center;
     }
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 10px;
       display: flex;
       justify-content: center;
     }
     nav ul li {
-      margin: 0 15px;
+      margin: 0 10px;
     }
     nav ul li a {
+      color: var(--text_color);
+      text-shadow: -2px 1px var(--text_shadow);
       text-decoration: none;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.8em;
-      color: #fff;
-      padding: 5px 10px;
-      transition: background 0.3s;
+      font-size: 1.2rem;
     }
     nav ul li a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
+      opacity: 0.8;
     }
-
-    /* Styl kontenera głównej treści */
+    
+    /* Kontener głównej treści – checklisty */
     .container {
+      width: 100%;
       max-width: 800px;
-      margin: 80px auto 30px auto; /* margines u góry, by nie przykrywało menu */
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px 30px;
-      border: 2px solid #c7a17a;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background: var(--gradient-bg);
+      border: 10px solid;
+      border-image: url("https://assets.codepen.io/7237686/tab_border.png?format=auto") 24 round;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.8em;
+    .container h1 {
       text-align: center;
+      font-size: 2rem;
       margin-bottom: 20px;
-      color: #c7a17a;
+      color: var(--text_color);
+      text-shadow: -2px 1px var(--text_shadow);
     }
-    h2 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.2em;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      color: #c7a17a;
+    .container h2 {
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+      color: var(--text_color);
+      text-shadow: -2px 1px var(--text_shadow);
     }
-    ul {
+    ul.checklist {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
     }
-    li {
+    ul.checklist li {
       margin-bottom: 10px;
       display: flex;
       align-items: center;
     }
-    /* Checkboxy – klikane tylko na sam checkbox */
-    input[type="checkbox"] {
+    ul.checklist li input[type="checkbox"] {
       width: 20px;
       height: 20px;
       margin-right: 10px;
       cursor: pointer;
     }
     /* Tekst obok checkboxa – nie klikalny */
-    .checkbox-text {
+    ul.checklist li .checkbox-text {
       cursor: default;
       user-select: none;
+      font-size: 1.2rem;
     }
-    a {
-      font-size: 0.9em;
+    a.mod-link {
+      font-size: 1rem;
       margin-left: 10px;
-      color: #ffeb3b;
-      text-decoration: none;
-    }
-    a:hover {
+      color: var(--text_color);
       text-decoration: underline;
+    }
+    a.mod-link:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -120,12 +143,13 @@
       <li><a href="#">Kontakt</a></li>
     </ul>
   </nav>
-
+  
+  <!-- Kontener głównej treści z interaktywną checklistą -->
   <div class="container">
     <h1>MODY STARDEW</h1>
-
+    
     <h2>Główne:</h2>
-    <ul>
+    <ul class="checklist">
       <li>
         <input type="checkbox" id="smapi">
         <span class="checkbox-text">SMAPI</span>
@@ -139,9 +163,9 @@
         <span class="checkbox-text">Frontier Farm</span>
       </li>
     </ul>
-
+    
     <h2>Potrzebne:</h2>
-    <ul>
+    <ul class="checklist">
       <li>
         <input type="checkbox" id="generic_mod_config">
         <span class="checkbox-text">Generic Mod Config Menu</span>
@@ -159,38 +183,38 @@
         <span class="checkbox-text">MixedBag's Tilesheets</span>
       </li>
     </ul>
-
+    
     <h2>QoL:</h2>
-    <ul>
+    <ul class="checklist">
       <li>
         <input type="checkbox" id="pause_time">
         <span class="checkbox-text">Pause Time in Multiplayer Revived</span>
-        <a href="https://www.nexusmods.com/stardewvalley/mods/21327" target="_blank">Link</a>
+        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/21327" target="_blank">Link</a>
       </li>
       <li>
         <input type="checkbox" id="friends_forever">
         <span class="checkbox-text">Friends Forever (1.6)</span>
-        <a href="https://www.nexusmods.com/stardewvalley/mods/20702" target="_blank">Link</a>
+        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/20702" target="_blank">Link</a>
       </li>
       <li>
         <input type="checkbox" id="ui_info_suite">
         <span class="checkbox-text">UI Info Suite 2</span>
-        <a href="https://www.nexusmods.com/stardewvalley/mods/7098" target="_blank">Link</a>
+        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/7098" target="_blank">Link</a>
       </li>
       <li>
         <input type="checkbox" id="npc_map">
         <span class="checkbox-text">NPC Map Locations</span>
-        <a href="https://www.nexusmods.com/stardewvalley/mods/239" target="_blank">Link</a>
+        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/239" target="_blank">Link</a>
       </li>
       <li>
         <input type="checkbox" id="lookup_anything">
         <span class="checkbox-text">LookUp Anything</span>
-        <a href="https://www.nexusmods.com/stardewvalley/mods/541" target="_blank">Link</a>
+        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/541" target="_blank">Link</a>
       </li>
     </ul>
-
+    
     <h2>Wygląd:</h2>
-    <ul>
+    <ul class="checklist">
       <li>
         <input type="checkbox" id="vibrant_pastoral_redrawn">
         <span class="checkbox-text">Vibrant Pastoral Redrawn</span>
@@ -201,7 +225,7 @@
       </li>
     </ul>
   </div>
-
+  
   <script>
     // Pobranie wszystkich checkboxów i ustawienie ich stanu z localStorage
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
