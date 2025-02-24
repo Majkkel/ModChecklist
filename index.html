@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checklist modów do Stardew Valley</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f9f9f9;
+        color: #333;
+      }
+      h1,
+      h2 {
+        color: #222;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      label {
+        cursor: pointer;
+      }
+      a {
+        font-size: 0.9em;
+        margin-left: 5px;
+        text-decoration: none;
+        color: #0073e6;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MODY STARDEW</h1>
+
+    <h2>Glowne:</h2>
+    <ul>
+      <li>
+        <input type="checkbox" id="smapi" />
+        <label for="smapi">SMAPI</label>
+      </li>
+      <li>
+        <input type="checkbox" id="sve" />
+        <label for="sve">Stardew Valley Expanded</label>
+      </li>
+      <li>
+        <input type="checkbox" id="frontier_farm" />
+        <label for="frontier_farm">Frontier Farm</label>
+      </li>
+    </ul>
+
+    <h2>Potrzebne:</h2>
+    <ul>
+      <li>
+        <input type="checkbox" id="generic_mod_config" />
+        <label for="generic_mod_config">Generic Mod Config Menu</label>
+      </li>
+      <li>
+        <input type="checkbox" id="content_patcher" />
+        <label for="content_patcher">Content Patcher</label>
+      </li>
+      <li>
+        <input type="checkbox" id="farm_type_manager" />
+        <label for="farm_type_manager">Farm Type Manager</label>
+      </li>
+      <li>
+        <input type="checkbox" id="mixedbags_tilesheets" />
+        <label for="mixedbags_tilesheets">MixedBag's Tilesheets</label>
+      </li>
+    </ul>
+
+    <h2>QoL:</h2>
+    <ul>
+      <li>
+        <input type="checkbox" id="pause_time" />
+        <label for="pause_time">Pause Time in Multiplayer Revived</label>
+        <a
+          href="https://www.nexusmods.com/stardewvalley/mods/21327"
+          target="_blank"
+          >Link</a
+        >
+      </li>
+      <li>
+        <input type="checkbox" id="friends_forever" />
+        <label for="friends_forever">Friends Forever (1.6)</label>
+        <a
+          href="https://www.nexusmods.com/stardewvalley/mods/20702"
+          target="_blank"
+          >Link</a
+        >
+      </li>
+      <li>
+        <input type="checkbox" id="ui_info_suite" />
+        <label for="ui_info_suite">UI Info Suite 2</label>
+        <a
+          href="https://www.nexusmods.com/stardewvalley/mods/7098"
+          target="_blank"
+          >Link</a
+        >
+      </li>
+      <li>
+        <input type="checkbox" id="npc_map" />
+        <label for="npc_map">NPC Map Locations</label>
+        <a
+          href="https://www.nexusmods.com/stardewvalley/mods/239"
+          target="_blank"
+          >Link</a
+        >
+      </li>
+      <li>
+        <input type="checkbox" id="lookup_anything" />
+        <label for="lookup_anything">LookUp Anything</label>
+        <a
+          href="https://www.nexusmods.com/stardewvalley/mods/541"
+          target="_blank"
+          >Link</a
+        >
+      </li>
+    </ul>
+
+    <h2>Wygląd:</h2>
+    <ul>
+      <li>
+        <input type="checkbox" id="vibrant_pastoral_redrawn" />
+        <label for="vibrant_pastoral_redrawn">Vibrant Pastoral Redrawn</label>
+      </li>
+      <li>
+        <input type="checkbox" id="vibrant_pastoral_expanded" />
+        <label for="vibrant_pastoral_expanded">Vibrant Pastoral Expanded</label>
+      </li>
+    </ul>
+
+    <script>
+      // Pobieramy wszystkie checkboxy na stronie
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      // Przy starcie strony ustawiamy stan z localStorage (jeśli istnieje)
+      checkboxes.forEach((checkbox) => {
+        const savedState = localStorage.getItem(checkbox.id);
+        if (savedState === "true") {
+          checkbox.checked = true;
+        }
+        // Nasłuchujemy zmiany stanu i zapisujemy go
+        checkbox.addEventListener("change", function () {
+          localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+      });
+    </script>
+  </body>
+</html>
