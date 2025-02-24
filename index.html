@@ -7,21 +7,61 @@
   <!-- Czcionki inspirowane klimatem retro -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Ogólne ustawienia */
+    /* Animowane tło inspirowane stylem CodePen */
     body {
       margin: 0;
       padding: 0;
-      background-color: #f5f1e9;
-      background-image: url('https://www.transparenttextures.com/patterns/paper-1.png');
       font-family: 'Roboto', sans-serif;
-      color: #333;
+      background: linear-gradient(45deg, #3d2b1f, #c7a17a, #3d2b1f);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: #fff;
     }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Menu nawigacyjne inspirowane CodePen */
+    nav {
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.8em;
+      color: #fff;
+      padding: 5px 10px;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+
+    /* Styl kontenera głównej treści */
     .container {
       max-width: 800px;
-      margin: 30px auto;
-      background: rgba(255, 255, 255, 0.9);
+      margin: 80px auto 30px auto; /* margines u góry, by nie przykrywało menu */
+      background: rgba(0, 0, 0, 0.5);
       padding: 20px 30px;
-      border: 3px solid #a67c52;
+      border: 2px solid #c7a17a;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
@@ -30,14 +70,14 @@
       font-size: 1.8em;
       text-align: center;
       margin-bottom: 20px;
-      color: #5a3e1b;
+      color: #c7a17a;
     }
     h2 {
       font-family: 'Press Start 2P', cursive;
       font-size: 1.2em;
       margin-top: 30px;
       margin-bottom: 10px;
-      color: #5a3e1b;
+      color: #c7a17a;
     }
     ul {
       list-style: none;
@@ -48,13 +88,14 @@
       display: flex;
       align-items: center;
     }
+    /* Checkboxy – klikane tylko na sam checkbox */
     input[type="checkbox"] {
       width: 20px;
       height: 20px;
       margin-right: 10px;
       cursor: pointer;
     }
-    /* Tekst przy checkboxie – nie klikalny */
+    /* Tekst obok checkboxa – nie klikalny */
     .checkbox-text {
       cursor: default;
       user-select: none;
@@ -62,7 +103,7 @@
     a {
       font-size: 0.9em;
       margin-left: 10px;
-      color: #0073e6;
+      color: #ffeb3b;
       text-decoration: none;
     }
     a:hover {
@@ -71,6 +112,15 @@
   </style>
 </head>
 <body>
+  <!-- Menu nawigacyjne -->
+  <nav>
+    <ul>
+      <li><a href="#">Strona główna</a></li>
+      <li><a href="#">Mody</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
     <h1>MODY STARDEW</h1>
 
@@ -153,9 +203,8 @@
   </div>
 
   <script>
-    // Pobierz wszystkie checkboxy
+    // Pobranie wszystkich checkboxów i ustawienie ich stanu z localStorage
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    // Ustaw stan checkboxów na podstawie zapisów w localStorage
     checkboxes.forEach(checkbox => {
       const savedState = localStorage.getItem(checkbox.id);
       if (savedState === 'true') {
