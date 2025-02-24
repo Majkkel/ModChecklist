@@ -2,16 +2,16 @@
 
 ## Glowne:
 
-- SMAPI
-- Stardew Valley Expanded
-- Frontier Farm
+- [ ] SMAPI
+- [ ] Stardew Valley Expanded
+- [ ] Frontier Farm
 
 ## Potrzebne
 
-- Generic Mod Config Menu
-- Content Patcher
-- Farm Type Manager
-- MixedBag's Tilesheets
+- [ ] Generic Mod Config Menu
+- [ ] Content Patcher
+- [ ] Farm Type Manager
+- [ ] MixedBag's Tilesheets
 
 ## QoL
 
@@ -19,9 +19,9 @@
 - [ ] Friends Forever (1.6) https://www.nexusmods.com/stardewvalley/mods/20702
 - [ ] UI Info Suite 2 https://www.nexusmods.com/stardewvalley/mods/7098
 - [ ] NPC Map Locations https://www.nexusmods.com/stardewvalley/mods/239
-- [x] LookUp Anything https://www.nexusmods.com/stardewvalley/mods/541
+- [ ] LookUp Anything https://www.nexusmods.com/stardewvalley/mods/541
 
 ## Wyglad
 
-- Vibrant Pastoral Redrawn
-- Vibrant Pastoral Expanded
+- [ ] Vibrant Pastoral Redrawn
+- [ ] Vibrant Pastoral Expanded
