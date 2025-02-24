@@ -32,6 +32,34 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
+    }
+    
+    /* Animowane chmury */
+    .marquee {
+      z-index: -10;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      opacity: 0.8;
+      display: flex;
+      animation: marquee 150s linear infinite;
+    }
+    
+    .marquee .clouds {
+      flex: none;
+      width: 100%;
+    }
+    
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
     }
     
     body {
@@ -108,6 +136,27 @@
   </style>
 </head>
 <body>
+    <!-- Animowane chmury w tle -->
+  <div class="marquee">
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+    <div class="clouds">
+      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    </div>
+  </div>
   <!-- Kontener glównej treści z interaktywna checklista -->
   <div class="container">
     <h1>MODY STARDEW</h1>
