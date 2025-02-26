@@ -243,17 +243,18 @@
   </div>
   
   <script>
-    // Pobranie wszystkich checkboxów i ustawienie ich stanu z localStorage
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-      const savedState = localStorage.getItem(checkbox.id);
-      if (savedState === 'true') {
-        checkbox.checked = true;
-      }
-      checkbox.addEventListener('change', () => {
-        localStorage.setItem(checkbox.id, checkbox.checked);
-      });
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    // Przy starcie strony odczytujemy stan checkboxa z localStorage
+    const savedState = localStorage.getItem(checkbox.id);
+    if (savedState === 'true') {
+      checkbox.checked = true;
+    }
+    // Za każdym razem, gdy stan checkboxa ulega zmianie, zapisujemy go
+    checkbox.addEventListener('change', () => {
+      localStorage.setItem(checkbox.id, checkbox.checked);
     });
+  });
   </script>
 </body>
 </html>
