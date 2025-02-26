@@ -127,6 +127,11 @@
       user-select: none;
       font-size: 1.2rem;
     }
+    
+    ul.checklist li .checkbox-text.crossed {
+      text-decoration: line-through;
+    }
+    
     a.mod-link {
       font-size: 1rem;
       margin-left: 10px;
@@ -252,18 +257,29 @@
   </div>
   
   <script>
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach(checkbox => {
-    // Przy starcie strony odczytujemy stan checkboxa z localStorage
-    const savedState = localStorage.getItem(checkbox.id);
-    if (savedState === 'true') {
-      checkbox.checked = true;
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+checkboxes.forEach(checkbox => {
+  // Przy starcie strony odczytujemy stan checkboxa z localStorage
+  const savedState = localStorage.getItem(checkbox.id);
+  if (savedState === 'true') {
+    checkbox.checked = true;
+    // Dodaj klasę 'crossed' do powiązanego tekstu
+    const text = checkbox.nextElementSibling;
+    if (text && text.classList.contains('checkbox-text')) {
+      text.classList.add('crossed');
     }
-    // Za każdym razem, gdy stan checkboxa ulega zmianie, zapisujemy go
-    checkbox.addEventListener('change', () => {
-      localStorage.setItem(checkbox.id, checkbox.checked);
-    });
+  }
+  // Za każdym razem, gdy stan checkboxa ulega zmianie, zapisujemy go i aktualizujemy klasę
+  checkbox.addEventListener('change', () => {
+    localStorage.setItem(checkbox.id, checkbox.checked);
+    const text = checkbox.nextElementSibling;
+    if (checkbox.checked) {
+      text.classList.add('crossed');
+    } else {
+      text.classList.remove('crossed');
+    }
   });
+});
   </script>
 </body>
 </html>
