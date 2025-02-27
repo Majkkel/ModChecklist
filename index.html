@@ -1,285 +1,387 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Checklist modów do Stardew Valley</title>
-  <style>
-    :root {
-      --container_color: #ffc878;
-      --container_color2: #f8ba70;
-      --container_color3: #eba867;
-      --text_color: #331f28;
-      --text_shadow: #ce9c5f;
-      --gradient-bg: linear-gradient(
-        180deg,
-        var(--container_color) 0%,
-        var(--container_color2) 50%,
-        var(--container_color3) 100%
-      );
-    }
-    
-    @font-face {
-      font-family: svFont;
-      src: url(https://assets.codepen.io/7237686/rainyhearts.woff) format("woff");
-    }
-    @font-face {
-      font-family: pixelFont;
-      src: url(https://assets.codepen.io/7237686/pixelFont.woff) format("woff");
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
-    }
-    
-    /* Animowane chmury */
-    .marquee {
-      z-index: -10;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      opacity: 0.8;
-      display: flex;
-      animation: marquee 150s linear infinite;
-    }
-    
-    .marquee .clouds {
-      flex: none;
-      width: 100%;
-    }
-    
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checklist modów do Stardew Valley</title>
+    <style>
+      :root {
+        --container_color: #ffc878;
+        --container_color2: #f8ba70;
+        --container_color3: #eba867;
+        --text_color: #331f28;
+        --text_shadow: #ce9c5f;
+        --gradient-bg: linear-gradient(
+          180deg,
+          var(--container_color) 0%,
+          var(--container_color2) 50%,
+          var(--container_color3) 100%
+        );
       }
-      to {
-        transform: translateX(-50%);
+
+      @font-face {
+        font-family: svFont;
+        src: url(https://assets.codepen.io/7237686/rainyhearts.woff)
+          format("woff");
       }
-    }
-    
-    body {
-      background-image: url("https://assets.codepen.io/7237686/bg.png?format=auto");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: svFont, sans-serif;
-      color: var(--text_color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-    
-    /* Kontener glównej treści – checklisty */
-    .container {
-      width: 100%;
-      max-width: 800px;
-      background: var(--gradient-bg);
-      border-top: 30px solid transparent;
-      border-right: 30px solid transparent;
-      border-bottom: 30px solid transparent;
-      border-left: 30px solid transparent;
-      border-image: url("https://assets.codepen.io/7237686/tooltipbordertop.png") 24 round;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-    .container h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--text_color);
-      text-shadow: -2px 1px var(--text_shadow);
-    }
-    .container h2 {
-      font-size: 1.5rem;
-      margin: 20px 0 10px;
-      color: var(--text_color);
-      text-shadow: -2px 1px var(--text_shadow);
-    }
-    ul.checklist {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul.checklist li {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-    ul.checklist li input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
-    }
-    ul.checklist li input[type="checkbox"]:hover {
-      filter: brightness(0.8);
-    }
-    /* Tekst obok checkboxa – nie klikalny */
-    ul.checklist li .checkbox-text {
-      cursor: default;
-      user-select: none;
-      font-size: 1.2rem;
-    }
-    
-    ul.checklist li .checkbox-text.crossed {
-      text-decoration: line-through;
-    }
-    
-    a.mod-link {
-      font-size: 1rem;
-      margin-left: 10px;
-      color: var(--text_color);
-      text-decoration: underline;
-    }
-    a.mod-link:hover {
-      opacity: 0.8;
-    }
-  </style>
-</head>
-<body>
+      @font-face {
+        font-family: pixelFont;
+        src: url(https://assets.codepen.io/7237686/pixelFont.woff)
+          format("woff");
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: url("cursor.png"), auto;
+      }
+
+      /* Animowane chmury */
+      .marquee {
+        z-index: -10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        opacity: 0.8;
+        display: flex;
+        animation: marquee 150s linear infinite;
+      }
+
+      .marquee .clouds {
+        flex: none;
+        width: 100%;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      body {
+        background-image: url("https://assets.codepen.io/7237686/bg.png?format=auto");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: svFont, sans-serif;
+        color: var(--text_color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      /* Kontener glównej treści – checklisty */
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background: var(--gradient-bg);
+        border-top: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 30px solid transparent;
+        border-image: url("https://assets.codepen.io/7237686/tooltipbordertop.png")
+          24 round;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .container h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--text_color);
+        text-shadow: -2px 1px var(--text_shadow);
+      }
+      .container h2 {
+        font-size: 2rem;
+        margin: 20px 0 10px;
+        color: var(--text_color);
+        text-shadow: -2px 1px var(--text_shadow);
+      }
+      ul.checklist {
+        list-style: none;
+        padding-left: 0;
+        accent-color: #b15505;
+      }
+      ul.checklist li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      ul.checklist li input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      ul.checklist li input[type="checkbox"]:hover {
+        filter: brightness(0.8);
+      }
+      /* Tekst obok checkboxa – nie klikalny */
+      ul.checklist li .checkbox-text {
+        user-select: none;
+        font-size: 1.3rem;
+      }
+
+      ul.checklist li .checkbox-text.crossed {
+        text-decoration: line-through;
+      }
+
+      a.mod-link {
+        font-size: 1.3rem;
+        margin-left: 10px;
+        color: var(--text_color);
+        text-decoration: underline;
+      }
+      a.mod-link:hover {
+        opacity: 0.5;
+      }
+      .chicken {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
     <!-- Animowane chmury w tle -->
-  <div class="marquee">
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    <div class="marquee">
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
+      <div class="clouds">
+        <img
+          src="https://assets.codepen.io/7237686/clouds.png?format=auto"
+          alt="clouds"
+        />
+      </div>
     </div>
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
+    <!-- Kontener glównej treści z interaktywna checklista -->
+    <div class="container">
+      <h1>STARDEW VALLEY MOD CHECKLIST</h1>
+      <img
+        alt="White Chicken.png"
+        src="https://stardewvalleywiki.com/mediawiki/images/2/22/White_Chicken.png"
+        decoding="async"
+        width="36"
+        height="36"
+        class="chicken"
+      />
+      <h2>Glówne:</h2>
+      <ul class="checklist">
+        <li>
+          <input type="checkbox" id="smapi" />
+          <span class="checkbox-text">SMAPI</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/2400"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="sve" />
+          <span class="checkbox-text">Stardew Valley Expanded</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/3753"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="frontier_farm" />
+          <span class="checkbox-text">Frontier Farm</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/3753?tab=files&file_id=119917"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+      </ul>
+
+      <h2>Potrzebne:</h2>
+      <ul class="checklist">
+        <li>
+          <input type="checkbox" id="generic_mod_config" />
+          <span class="checkbox-text">Generic Mod Config Menu</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/5098"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="content_patcher" />
+          <span class="checkbox-text">Content Patcher</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/1915"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="farm_type_manager" />
+          <span class="checkbox-text">Farm Type Manager</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/3231"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="mixedbags_tilesheets" />
+          <span class="checkbox-text">MixedBag's Tilesheets</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/15707"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+      </ul>
+
+      <h2>QoL:</h2>
+      <ul class="checklist">
+        <li>
+          <input type="checkbox" id="pause_time" />
+          <span class="checkbox-text">Pause Time in Multiplayer Revived</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/21327"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="friends_forever" />
+          <span class="checkbox-text">Friends Forever (1.6)</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/20702"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="ui_info_suite" />
+          <span class="checkbox-text">UI Info Suite 2</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/7098"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="npc_map" />
+          <span class="checkbox-text">NPC Map Locations</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/239"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="lookup_anything" />
+          <span class="checkbox-text">LookUp Anything</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/541"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+      </ul>
+
+      <h2>Wyglad:</h2>
+      <ul class="checklist">
+        <li>
+          <input type="checkbox" id="vibrant_pastoral_redrawn" />
+          <span class="checkbox-text">Vibrant Pastoral Redrawn</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/6367"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+        <li>
+          <input type="checkbox" id="vibrant_pastoral_expanded" />
+          <span class="checkbox-text">Vibrant Pastoral Expanded</span>
+          <a
+            class="mod-link"
+            href="https://www.nexusmods.com/stardewvalley/mods/6367?tab=files&file_id=117486"
+            target="_blank"
+            >Link</a
+          >
+        </li>
+      </ul>
     </div>
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
-    </div>
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
-    </div>
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
-    </div>
-    <div class="clouds">
-      <img src="https://assets.codepen.io/7237686/clouds.png?format=auto" alt="clouds" />
-    </div>
-  </div>
-  <!-- Kontener glównej treści z interaktywna checklista -->
-  <div class="container">
-    <h1>STARDEW VALLEY MOD CHECKLIST</h1>
-    <img alt="White Chicken.png" src="https://stardewvalleywiki.com/mediawiki/images/2/22/White_Chicken.png" decoding="async" width="24" height="24">
-    <h2>Glówne:</h2>
-    <ul class="checklist">
-      <li>
-        <input type="checkbox" id="smapi">
-        <span class="checkbox-text">SMAPI</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/2400" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="sve">
-        <span class="checkbox-text">Stardew Valley Expanded</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/3753" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="frontier_farm">
-        <span class="checkbox-text">Frontier Farm</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/3753?tab=files&file_id=119917" target="_blank">Link</a>
-      </li>
-    </ul>
-    
-    <h2>Potrzebne:</h2>
-    <ul class="checklist">
-      <li>
-        <input type="checkbox" id="generic_mod_config">
-        <span class="checkbox-text">Generic Mod Config Menu</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/5098" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="content_patcher">
-        <span class="checkbox-text">Content Patcher</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/1915" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="farm_type_manager">
-        <span class="checkbox-text">Farm Type Manager</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/3231" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="mixedbags_tilesheets">
-        <span class="checkbox-text">MixedBag's Tilesheets</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/15707" target="_blank">Link</a>
-      </li>
-    </ul>
-    
-    <h2>QoL:</h2>
-    <ul class="checklist">
-      <li>
-        <input type="checkbox" id="pause_time">
-        <span class="checkbox-text">Pause Time in Multiplayer Revived</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/21327" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="friends_forever">
-        <span class="checkbox-text">Friends Forever (1.6)</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/20702" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="ui_info_suite">
-        <span class="checkbox-text">UI Info Suite 2</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/7098" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="npc_map">
-        <span class="checkbox-text">NPC Map Locations</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/239" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="lookup_anything">
-        <span class="checkbox-text">LookUp Anything</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/541" target="_blank">Link</a>
-      </li>
-    </ul>
-    
-    <h2>Wyglad:</h2>
-    <ul class="checklist">
-      <li>
-        <input type="checkbox" id="vibrant_pastoral_redrawn">
-        <span class="checkbox-text">Vibrant Pastoral Redrawn</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/6367" target="_blank">Link</a>
-      </li>
-      <li>
-        <input type="checkbox" id="vibrant_pastoral_expanded">
-        <span class="checkbox-text">Vibrant Pastoral Expanded</span>
-        <a class="mod-link" href="https://www.nexusmods.com/stardewvalley/mods/6367?tab=files&file_id=117486" target="_blank">Link</a>
-      </li>
-    </ul>
-  </div>
-  
-  <script>
-const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-checkboxes.forEach(checkbox => {
-  // Przy starcie strony odczytujemy stan checkboxa z localStorage
-  const savedState = localStorage.getItem(checkbox.id);
-  if (savedState === 'true') {
-    checkbox.checked = true;
-    // Dodaj klasę 'crossed' do powiązanego tekstu
-    const text = checkbox.nextElementSibling;
-    if (text && text.classList.contains('checkbox-text')) {
-      text.classList.add('crossed');
-    }
-  }
-  // Za każdym razem, gdy stan checkboxa ulega zmianie, zapisujemy go i aktualizujemy klasę
-  checkbox.addEventListener('change', () => {
-    localStorage.setItem(checkbox.id, checkbox.checked);
-    const text = checkbox.nextElementSibling;
-    if (checkbox.checked) {
-      text.classList.add('crossed');
-    } else {
-      text.classList.remove('crossed');
-    }
-  });
-});
-  </script>
-</body>
+
+    <script>
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        // Przy starcie strony odczytujemy stan checkboxa z localStorage
+        const savedState = localStorage.getItem(checkbox.id);
+        if (savedState === "true") {
+          checkbox.checked = true;
+          // Dodaj klasę 'crossed' do powiązanego tekstu
+          const text = checkbox.nextElementSibling;
+          if (text && text.classList.contains("checkbox-text")) {
+            text.classList.add("crossed");
+          }
+        }
+        // Za każdym razem, gdy stan checkboxa ulega zmianie, zapisujemy go i aktualizujemy klasę
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(checkbox.id, checkbox.checked);
+          const text = checkbox.nextElementSibling;
+          if (checkbox.checked) {
+            text.classList.add("crossed");
+          } else {
+            text.classList.remove("crossed");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
